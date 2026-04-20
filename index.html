@@ -8,38 +8,72 @@
 <style>
 body {
     margin: 0;
-    background: url('background.jpg') no-repeat center center;
-    background-size: cover;
+    font-family: Arial, sans-serif;
+    background: #0b0b0b; /* plain dark background */
     height: 100vh;
-}
-
-/* Invisible clickable areas */
-.btn {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 70px;
-    cursor: pointer;
-}
-
-/* Position EXACTLY over your image buttons */
-.yes {
-    top: 55%;  /* adjust if needed */
-}
-
-.no {
-    top: 68%;  /* adjust if needed */
-}
-
-/* Result text */
-#result {
-    position: absolute;
-    top: 80%;
-    width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 24px;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    width: 90%;
+}
+
+/* Title */
+h1 {
+    font-size: 7vw;
+    color: #ff2b2b;
+    text-shadow: 
+        0 0 10px red,
+        0 0 25px red,
+        0 0 40px red;
+    margin-bottom: 50px;
+}
+
+/* Buttons */
+button {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 18px;
+    font-size: 6vw;
+    border-radius: 12px;
+    cursor: pointer;
+    background: black;
+    transition: 0.3s;
+}
+
+/* YES button */
+.yes {
+    color: white;
+    border: 2px solid red;
+    box-shadow: 0 0 15px red;
+}
+
+.yes:hover {
+    box-shadow: 0 0 35px red;
+    transform: scale(1.05);
+}
+
+/* NO button */
+.no {
+    color: #ccc;
+    border: 2px solid gray;
+}
+
+.no:hover {
+    box-shadow: 0 0 20px gray;
+    transform: scale(1.05);
+}
+
+/* Result */
+#result {
+    margin-top: 30px;
+    font-size: 6vw;
     font-weight: bold;
 }
 </style>
@@ -48,11 +82,14 @@ body {
 
 <body>
 
-<!-- Invisible buttons -->
-<div class="btn yes" onclick="yesClick()"></div>
-<div class="btn no" onclick="noClick()"></div>
+<div class="container">
+    <h1>Would you like to participate in the Game?</h1>
 
-<p id="result"></p>
+    <button class="yes" onclick="yesClick()">YES</button>
+    <button class="no" onclick="noClick()">NO</button>
+
+    <p id="result"></p>
+</div>
 
 <script>
 function yesClick() {
