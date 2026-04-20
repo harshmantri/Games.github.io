@@ -7,8 +7,8 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1526401485004-2aa7f3a5cdb3') no-repeat center center/cover;
+    font-family: 'Arial', sans-serif;
+    background: url('background.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,53 +17,75 @@ body {
     text-align: center;
 }
 
-.container {
+/* Dark overlay for better visibility */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.6);
-    padding: 30px;
-    border-radius: 15px;
+    top: 0;
+    left: 0;
 }
 
+/* Main container */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title */
 h1 {
-    color: #ff3b3b;
-    text-shadow: 0 0 15px red;
-    font-size: 28px;
+    color: #ff2b2b;
+    font-size: 32px;
+    text-shadow: 
+        0 0 5px red,
+        0 0 10px red,
+        0 0 20px red;
+    margin-bottom: 40px;
 }
 
+/* Buttons */
 button {
     display: block;
-    margin: 15px auto;
-    padding: 15px 60px;
-    font-size: 20px;
-    border-radius: 8px;
+    margin: 20px auto;
+    padding: 18px 70px;
+    font-size: 22px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    background: rgba(0,0,0,0.7);
 }
 
+/* YES button (red glow) */
 .yes {
-    background: black;
     color: white;
     border: 2px solid red;
     box-shadow: 0 0 10px red;
 }
 
 .yes:hover {
-    box-shadow: 0 0 20px red;
+    box-shadow: 0 0 25px red;
+    transform: scale(1.05);
 }
 
+/* NO button (gray) */
 .no {
-    background: black;
-    color: gray;
+    color: #ccc;
     border: 2px solid gray;
 }
 
 .no:hover {
-    box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 15px gray;
+    transform: scale(1.05);
 }
 
+/* Result text */
 #result {
-    margin-top: 20px;
-    font-size: 24px;
+    margin-top: 30px;
+    font-size: 26px;
     font-weight: bold;
+    text-shadow: 0 0 10px white;
 }
 </style>
 
