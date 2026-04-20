@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Game</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: url('background.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+
+    /* PERFECT mobile background */
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover; /* fills screen without distortion */
+
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +22,7 @@ body {
     text-align: center;
 }
 
-/* Dark overlay for better visibility */
+/* Dark overlay */
 body::before {
     content: "";
     position: absolute;
@@ -28,64 +33,60 @@ body::before {
     left: 0;
 }
 
-/* Main container */
+/* Container */
 .container {
     position: relative;
     z-index: 1;
+    width: 90%;
 }
 
-/* Title */
+/* BIG responsive heading */
 h1 {
+    font-size: 6vw; /* scales with screen */
     color: #ff2b2b;
-    font-size: 32px;
-    text-shadow: 
-        0 0 5px red,
-        0 0 10px red,
-        0 0 20px red;
-    margin-bottom: 40px;
+    text-shadow: 0 0 10px red, 0 0 25px red;
+    margin-bottom: 50px;
 }
 
-/* Buttons */
+/* Buttons (mobile friendly) */
 button {
     display: block;
+    width: 80%;
     margin: 20px auto;
-    padding: 18px 70px;
-    font-size: 22px;
-    border-radius: 10px;
+    padding: 18px;
+    font-size: 5vw;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.3s;
     background: rgba(0,0,0,0.7);
+    transition: 0.3s;
 }
 
-/* YES button (red glow) */
+/* YES button */
 .yes {
     color: white;
     border: 2px solid red;
-    box-shadow: 0 0 10px red;
+    box-shadow: 0 0 15px red;
 }
 
 .yes:hover {
-    box-shadow: 0 0 25px red;
-    transform: scale(1.05);
+    box-shadow: 0 0 30px red;
 }
 
-/* NO button (gray) */
+/* NO button */
 .no {
     color: #ccc;
     border: 2px solid gray;
 }
 
 .no:hover {
-    box-shadow: 0 0 15px gray;
-    transform: scale(1.05);
+    box-shadow: 0 0 20px gray;
 }
 
 /* Result text */
 #result {
     margin-top: 30px;
-    font-size: 26px;
+    font-size: 5.5vw;
     font-weight: bold;
-    text-shadow: 0 0 10px white;
 }
 </style>
 
